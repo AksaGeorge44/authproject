@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: django-auth
+    runtime: python  # REQUIRED
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn authsystem.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: authsystem.settings
+      - key: PYTHON_VERSION
+        value: 3.10
